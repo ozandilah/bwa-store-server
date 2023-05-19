@@ -1,0 +1,41 @@
+{
+  "name": "bwa-server-store",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.7",
+    "admin-lte": "^3.1.0",
+    "bootstrap": "^4.6.2",
+    "bootstrap-switch": "^3.3.4",
+    "chart.js": "^2.9.4",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "~1.4.4",
+    "datatables.net-plugins": "^1.13.4",
+    "daterangepicker": "^3.1.0",
+    "debug": "~2.6.9",
+    "dotenv": "^16.0.3",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "express-session": "^1.17.3",
+    "flot": "^4.2.3",
+    "http-errors": "~1.6.3",
+    "icheck-bootstrap": "^3.0.1",
+    "jquery": "^3.7.0",
+    "jquery-knob": "^1.2.11",
+    "jquery-ui": "^1.13.2",
+    "jqvmap": "^1.5.1",
+    "method-override": "^3.0.0",
+    "moment": "^2.29.4",
+    "mongodb": "^5.5.0",
+    "mongoose": "^7.1.1",
+    "morgan": "~1.9.1",
+    "overlayscrollbars": "^1.13.1",
+    "sparkline": "^0.2.0",
+    "summernote": "^0.8.20",
+    "tempusdominus-bootstrap-4": "^5.39.2"
+  }
+}
