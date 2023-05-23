@@ -14,6 +14,8 @@ module.exports = {
       res.render("admin/category/view_category", {
         category,
         alert,
+        name: req.session.user.name,
+        title: "Halaman Kategori",
       });
     } catch (error) {
       req.flash("alertMessage", `${error.message}`);
@@ -24,7 +26,10 @@ module.exports = {
   //   CREATE CATEGORY
   viewCreate: async (req, res) => {
     try {
-      res.render("admin/category/create");
+      res.render("admin/category/create", {
+        name: req.session.user.name,
+        title: "Halaman Tambah Kategori",
+      });
     } catch (error) {
       req.flash("alertMessage", `${error.message}`);
       req.flash("alertStatus", "danger");
@@ -58,6 +63,8 @@ module.exports = {
 
       res.render("admin/category/edit", {
         category,
+        name: req.session.user.name,
+        title: "Halaman Edit Kategori",
       });
     } catch (error) {
       req.flash("alertMessage", `${error.message}`);
