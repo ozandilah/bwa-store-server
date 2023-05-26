@@ -15,7 +15,7 @@ module.exports = {
       const alert = { message: alertMessage, status: alertStatus };
       const voucher = await Voucher.find()
         .populate("category")
-        .populate("nominal");
+        .populate("nominals");
 
       res.render("admin/voucher/view_voucher", {
         voucher,
@@ -50,7 +50,7 @@ module.exports = {
   //   Aksi Create
   actionCreate: async (req, res) => {
     try {
-      const { name, category, nominal } = req.body;
+      const { name, category, nominals } = req.body;
 
       if (req.file) {
         let tmp_path = req.file.path;
@@ -74,7 +74,7 @@ module.exports = {
             const voucher = new Voucher({
               name,
               category,
-              nominal,
+              nominals,
               thumbnail: filename,
             });
             await voucher.save();
@@ -91,7 +91,7 @@ module.exports = {
         const voucher = new Voucher({
           name,
           category,
-          nominal,
+          nominals,
         });
         await voucher.save();
         req.flash("alertMessage", "Berhasil Menambahkan Voucher");
@@ -112,7 +112,7 @@ module.exports = {
       let nominal = await Nominal.find();
       const voucher = await Voucher.findOne({ _id: id })
         .populate("category")
-        .populate("nominal");
+        .populate("nominals");
 
       //   console.log(category);
 
@@ -134,7 +134,7 @@ module.exports = {
     try {
       const { id } = req.params;
 
-      const { name, category, nominal } = req.body;
+      const { name, category, nominals } = req.body;
 
       if (req.file) {
         let tmp_path = req.file.path;
@@ -165,7 +165,7 @@ module.exports = {
               _id: id,
               name,
               category,
-              nominal,
+              nominals,
               thumbnail: filename,
             });
 
@@ -184,7 +184,7 @@ module.exports = {
           _id: id,
           name,
           category,
-          nominal,
+          nominals,
         });
         req.flash("alertMessage", "Berhasil Menambahkan Voucher");
         req.flash("alertStatus", "success");

@@ -79,14 +79,14 @@ include('../../partials/sidebar.ejs') %>
                       multiple="multiple"
                       data-placeholder="Pilih Nominal"
                       style="width: 100%"
-                      name="nominal"
+                      name="nominals"
                       required
                     >
 
 
                       <% nominal.forEach(nominal=>{ %>
                       <option value="<%= nominal._id %>"
-                        <%  voucher.nominal.forEach(voucherNominal =>{%> <% if(nominal._id.toString() === voucherNominal._id.toString()) {  %>
+                        <%  voucher.nominals.forEach(voucherNominal =>{%> <% if(nominal._id.toString() === voucherNominal._id.toString()) {  %>
                             selected
                             <% } %>
                             <% }) %>
