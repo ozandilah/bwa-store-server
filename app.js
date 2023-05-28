@@ -1,15 +1,15 @@
-var createError = require("http-errors");
+const createError = require("http-errors");
 
 require("dotenv").config();
-var express = require("express");
-var path = require("path");
-var cookieParser = require("cookie-parser");
-var logger = require("morgan");
+const express = require("express");
+const path = require("path");
+const cookieParser = require("cookie-parser");
+const logger = require("morgan");
 
 const methodOverride = require("method-override");
 const session = require("express-session");
 const flash = require("connect-flash");
-var cors = require("cors");
+const cors = require("cors");
 
 const dashboardRouter = require("./app/dashboard/router");
 const categoryRouter = require("./app/category/router");
@@ -22,9 +22,21 @@ const transactionRouter = require("./app/transaction/router");
 const playerRouter = require("./app/player/router");
 const authRouter = require("./app/auth/router");
 
-var app = express();
+const app = express();
+
 const URL = `/api/v1`;
 app.use(cors());
+
+// cek local
+
+app.get("/", (req, res) => {
+  const { body } = req;
+  res.json({
+    message: "GET Request Sucess",
+    data: body,
+    author: process.env.AUTHOR,
+  });
+});
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -56,6 +68,7 @@ app.use("/bank", bankRouter);
 app.use("/payment", paymentRouter);
 app.use("/transaction", transactionRouter);
 // api
+
 app.use(`${URL}/players`, playerRouter);
 app.use(`${URL}/auth`, authRouter);
 app.use(express.static("public"));
